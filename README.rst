@@ -65,6 +65,9 @@ which is ideal for building high performance asyncio services.
 `APISpec <https://apispec.readthedocs.io/en/stable/>`_ supports the `OpenApi Specification <https://github.com/OAI/OpenAPI-Specification>`_
 and it has some useful plugins like `marshmallow <https://marshmallow.readthedocs.io/en/3.0/>`_ support.
 
+Version supported: :code:`0.39.0`
+
+
 Usage
 =====
 
@@ -74,13 +77,13 @@ This example includes `marshmallow <https://marshmallow.readthedocs.io/en/3.0/>`
 .. code-block:: python
 
     from apispec import APISpec
-    from apispec.ext.marshmallow import MarshmallowPlugin
 
     from marshmallow import Schema, fields
 
     from starlette.applications import Starlette
     from starlette.endpoints import HTTPEndpoint
-    from starlette_apispec import APISpecSchemaGenerator, OpenAPIResponse
+    from starlette.schemas import OpenAPIResponse
+    from starlette_apispec import APISpecSchemaGenerator
 
 
     class UserSchema(Schema):
@@ -94,7 +97,7 @@ This example includes `marshmallow <https://marshmallow.readthedocs.io/en/3.0/>`
             version="1.0",
             openapi_version="3.0.0",
             info={"description": "explanation of the api purpose"},
-            plugins=[MarshmallowPlugin()],
+            plugins=["apispec.ext.marshmallow"],
         )
     )
     app.schema_generator.spec.definition("User", schema=UserSchema)
