@@ -4,6 +4,22 @@ Starlette APISpec
 
     Easy APISpec integration for Starlette
 
+.. image:: https://img.shields.io/travis/Woile/starlette-apispec.svg?style=flat-square
+    :alt: Travis
+    :target: https://travis-ci.org/Woile/starlette-apispec
+
+.. image:: https://img.shields.io/codecov/c/github/Woile/starlette-apispec.svg?style=flat-square
+    :alt: Codecov
+    :target: https://codecov.io/gh/Woile/starlette-apispec
+
+.. image:: https://img.shields.io/pypi/v/starlette-apispec.svg?style=flat-square
+    :alt: PyPI
+    :target: https://pypi.org/project/starlette-apispec/
+
+.. image:: https://img.shields.io/pypi/pyversions/starlette-apispec.svg?style=flat-square
+    :alt: PyPI - Python Version
+    :target: https://pypi.org/project/starlette-apispec/
+
 .. contents::
     :depth: 2
 
