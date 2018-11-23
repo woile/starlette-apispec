@@ -2,13 +2,14 @@
 Starlette APISpec
 ==================
 
-    Easy integration of APISpec for Starlette
+    Easy APISpec integration for Starlette
 
 .. contents::
     :depth: 2
 
 .. code-block:: python
 
+    from apispec.ext.marshmallow import MarshmallowPlugin
     from apispec import APISpec
     from starlette.applications import Starlette
     from starlette_apispec import APISpecSchemaGenerator
