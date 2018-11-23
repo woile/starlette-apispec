@@ -25,7 +25,6 @@ Starlette APISpec
 
 .. code-block:: python
 
-    from apispec.ext.marshmallow import MarshmallowPlugin
     from apispec import APISpec
     from starlette.applications import Starlette
     from starlette_apispec import APISpecSchemaGenerator
@@ -37,7 +36,7 @@ Starlette APISpec
             version="1.0",
             openapi_version="3.0.0",
             info={"description": "explanation of the api purpose"},
-            plugins=[MarshmallowPlugin()],
+            plugins=["apispec.ext.marshmallow"],
         )
     )
 
