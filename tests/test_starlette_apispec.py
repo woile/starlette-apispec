@@ -123,13 +123,14 @@ def test_schema_generation():
         },
         "tags": [],
         "openapi": "3.0.0",
-        "components": {"schemas": {}, "parameters": {}},
+        "components": {"schemas": {}, 'responses': {}, "parameters": {}},
     }
 
 
 EXPECTED_SCHEMA = """
 components:
   parameters: {}
+  responses: {}
   schemas: {}
 info:
   description: explanation of the api purpose
