@@ -21,7 +21,7 @@ class APISpecSchemaGenerator(BaseSchemaGenerator):
     def get_schema(self, routes: typing.List[BaseRoute]) -> dict:
         endpoints = self.get_endpoints(routes)
         for endpoint in endpoints:
-            self.spec.add_path(
+            self.spec.path(
                 path=endpoint.path,
                 operations={endpoint.http_method: self.parse_docstring(endpoint.func)},
             )
