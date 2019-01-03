@@ -123,7 +123,7 @@ def test_schema_generation():
         },
         "tags": [],
         "openapi": "3.0.0",
-        "components": {"schemas": {}, 'responses': {}, "parameters": {}},
+        "components": {"schemas": {}, "responses": {}, "parameters": {}},
     }
 
 
