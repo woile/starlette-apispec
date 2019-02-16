@@ -22,7 +22,7 @@ exclude = '''
 
 [tool.poetry]
 name = "starlette-apispec"
-version = "1.0.0b1"
+version = "1.0.0"
 description = "APISpec support for starlette"
 authors = ["Santiago Fraire Willemoes <santiwilly@gmail.com>"]
 keywords = ["openapi", "api", "swagger"]
@@ -42,9 +42,9 @@ homepage = "https://github.com/Woile/starlette-apispec"
 
 [tool.poetry.dependencies]
 python = "^3.6"
-apispec = "^1.0.0b5"
+apispec = "^1.0.0"
 starlette = ">=0.8.8"
-pyyaml = "^3.10"
+pyyaml = "^3.13"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.0"
