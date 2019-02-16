@@ -79,7 +79,6 @@ def schema(request):
 
 
 def test_schema_generation():
-    print(app.schema)
     assert app.schema == {
         "info": {
             "title": "Example API",
@@ -123,7 +122,7 @@ def test_schema_generation():
         },
         "tags": [],
         "openapi": "3.0.0",
-        "components": {"schemas": {}, "responses": {}, "parameters": {}},
+        "components": {"schemas": {}, "responses": {}, "parameters": {}, 'securitySchemes': {}},
     }
 
 
@@ -132,6 +131,7 @@ components:
   parameters: {}
   responses: {}
   schemas: {}
+  securitySchemes: {}
 info:
   description: explanation of the api purpose
   title: Example API
