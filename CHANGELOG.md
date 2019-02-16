@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-## [1.0.0b1]
+## [1.0.0] - 2019-02-16
+
+- Support for apispec `^1.0.0`
+
+## [1.0.0b1] - 2019-01-03
 
 ### BREAKING CHANGE
 

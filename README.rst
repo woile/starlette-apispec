@@ -65,7 +65,7 @@ which is ideal for building high performance asyncio services.
 `APISpec <https://apispec.readthedocs.io/en/stable/>`_ supports the `OpenApi Specification <https://github.com/OAI/OpenAPI-Specification>`_
 and it has some useful plugins like `marshmallow <https://marshmallow.readthedocs.io/en/3.0/>`_ support.
 
-Version supported: :code:`>=1.0.0b5`
+Version supported: :code:`^1.0.0`
 
 
 Usage
