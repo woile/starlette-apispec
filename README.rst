@@ -59,11 +59,11 @@ About
 
 This library helps you easily document your REST API built with starlette.
 
-`Starlette <https://www.starlette.io/>`_ is a is a lightweight ASGI framework/toolkit,
+Starlette_ is a is a lightweight ASGI framework/toolkit,
 which is ideal for building high performance asyncio services.
 
-`APISpec <https://apispec.readthedocs.io/en/stable/>`_ supports the `OpenApi Specification <https://github.com/OAI/OpenAPI-Specification>`_
-and it has some useful plugins like `marshmallow <https://marshmallow.readthedocs.io/en/3.0/>`_ support.
+APISpec_ supports the `OpenApi Specification <https://github.com/OAI/OpenAPI-Specification>`_
+and it has some useful plugins like marshmallow_ support.
 
 Version supported: :code:`^1.0.0`
 
@@ -72,7 +72,7 @@ Usage
 =====
 
 
-This example includes `marshmallow <https://marshmallow.readthedocs.io/>`_ integration
+This example includes marshmallow_ integration
 
 .. code-block:: python
 
@@ -163,9 +163,9 @@ More documentation
 This package is basically a proxy, so if you wonder how to do something,
 here are the sources you need:
 
-`Starlette documentation <https://www.starlette.io/>`_
+`Starlette documentation`_
 
-`APISpec Documentation <https://apispec.readthedocs.io/en/stable/>`_
+`APISpec documentation`_
 
 
 Testing
@@ -189,3 +189,10 @@ Contributing
 ============
 
 **PRs are welcome!**
+
+
+.. _marshmallow: https://marshmallow.readthedocs.io/
+.. _APISpec: https://apispec.readthedocs.io/en/stable/
+.. _Starlette: https://www.starlette.io/
+.. _`Starlette documentation`: https://www.starlette.io/
+.. _`APISpec documentation`: https://apispec.readthedocs.io/en/stable/
