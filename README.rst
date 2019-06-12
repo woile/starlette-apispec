@@ -77,31 +77,30 @@ This example includes marshmallow_ integration
 .. code-block:: python
 
     from apispec import APISpec
-    from apispec.ext.marshmallow import MarshmallowPlugin
-
-    from marshmallow import Schema, fields
 
     from starlette.applications import Starlette
     from starlette.endpoints import HTTPEndpoint
-    from starlette.schemas import OpenAPIResponse
+    from starlette.testclient import TestClient
+
     from starlette_apispec import APISpecSchemaGenerator
 
 
-    class UserSchema(Schema):
-        username = fields.Str(required=True)
-
-
     app = Starlette()
-    app.schema_generator = APISpecSchemaGenerator(
+
+    schemas = APISpecSchemaGenerator(
         APISpec(
             title="Example API",
             version="1.0",
             openapi_version="3.0.0",
             info={"description": "explanation of the api purpose"},
-            plugins=[MarshmallowPlugin()],
         )
     )
-    app.schema_generator.spec.definition("User", schema=UserSchema)
+
+
+    @app.websocket_route("/ws")
+    def ws(session):
+        """ws"""
+        pass  # pragma: no cover
 
 
     @app.route("/users", methods=["GET", "HEAD"])
@@ -110,11 +109,10 @@ This example includes marshmallow_ integration
         responses:
         200:
             description: A list of users.
-            schema: UserSchema
             examples:
             [{"username": "tom"}, {"username": "lucy"}]
         """
-        raise NotImplementedError()
+        pass  # pragma: no cover
 
 
     @app.route("/users", methods=["POST"])
@@ -123,11 +121,10 @@ This example includes marshmallow_ integration
         responses:
         200:
             description: A user.
-            schema: UserSchema
             examples:
             {"username": "tom"}
         """
-        raise NotImplementedError()
+        pass  # pragma: no cover
 
 
     @app.route("/orgs")
@@ -140,7 +137,7 @@ This example includes marshmallow_ integration
                 examples:
                 [{"name": "Foo Corp."}, {"name": "Acme Ltd."}]
             """
-            raise NotImplementedError()
+            pass  # pragma: no cover
 
         def post(self, request):
             """
@@ -150,12 +147,12 @@ This example includes marshmallow_ integration
                 examples:
                 {"name": "Foo Corp."}
             """
-            raise NotImplementedError()
+            pass  # pragma: no cover
 
 
     @app.route("/schema", methods=["GET"], include_in_schema=False)
     def schema(request):
-        return OpenAPIResponse(app.schema)
+        return schemas.OpenAPIResponse(request=request)
 
 More documentation
 ==================
@@ -172,17 +169,18 @@ Testing
 =======
 
 1. Clone the repo
-2. Install dependencies
+2. Activate venv ``. venv/bin/activate``
+3. Install dependencies
 
 ::
 
     poetry install
 
-3. Run tests
+4. Run tests
 
 ::
 
-    poetry run pytest -s --cov-report term-missing --cov=starlette_apispec tests/
+    ./scripts/test
 
 
 Contributing
