@@ -1,3 +1,11 @@
+[tool.commitizen]
+version = "1.0.1"
+tag_format = "v$version"
+files = [
+  "pyproject.toml:version",
+  "starlette_apispec/__init__.py:__version__"
+]
+
 [tool.black]
 line-length = 88
 py36 = true
@@ -43,8 +51,8 @@ homepage = "https://github.com/Woile/starlette-apispec"
 [tool.poetry.dependencies]
 python = "^3.6"
 apispec = "^1.0.0"
-starlette = ">=0.8.8"
-pyyaml = "^3.13"
+starlette = ">=0.11"
+pyyaml = "^5.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^4.0"

@@ -2,7 +2,6 @@ from apispec import APISpec
 
 from starlette.applications import Starlette
 from starlette.endpoints import HTTPEndpoint
-from starlette.schemas import OpenAPIResponse
 from starlette.testclient import TestClient
 
 from starlette_apispec import APISpecSchemaGenerator
@@ -10,7 +9,7 @@ from starlette_apispec import APISpecSchemaGenerator
 
 app = Starlette()
 
-app.schema_generator = APISpecSchemaGenerator(
+schemas = APISpecSchemaGenerator(
     APISpec(
         title="Example API",
         version="1.0",
@@ -75,21 +74,23 @@ class OrganisationsEndpoint(HTTPEndpoint):
 
 @app.route("/schema", methods=["GET"], include_in_schema=False)
 def schema(request):
-    return OpenAPIResponse(app.schema)
+    return schemas.OpenAPIResponse(request=request)
 
 
 def test_schema_generation():
-    assert app.schema == {
+    schema = schemas.get_schema(routes=app.routes)
+    print(schema)
+    assert schema == {
         "info": {
+            "description": "explanation of the api purpose",
             "title": "Example API",
             "version": "1.0",
-            "description": "explanation of the api purpose",
         },
         "paths": {
             "/users": {
                 "get": {
                     "responses": {
-                        200: {
+                        "200": {
                             "description": "A list of users.",
                             "examples": [{"username": "tom"}, {"username": "lucy"}],
                         }
@@ -97,14 +98,17 @@ def test_schema_generation():
                 },
                 "post": {
                     "responses": {
-                        200: {"description": "A user.", "examples": {"username": "tom"}}
+                        "200": {
+                            "description": "A user.",
+                            "examples": {"username": "tom"},
+                        }
                     }
                 },
             },
             "/orgs": {
                 "get": {
                     "responses": {
-                        200: {
+                        "200": {
                             "description": "A list of organisations.",
                             "examples": [{"name": "Foo Corp."}, {"name": "Acme Ltd."}],
                         }
@@ -112,7 +116,7 @@ def test_schema_generation():
                 },
                 "post": {
                     "responses": {
-                        200: {
+                        "200": {
                             "description": "An organisation.",
                             "examples": {"name": "Foo Corp."},
                         }
@@ -120,18 +124,11 @@ def test_schema_generation():
                 },
             },
         },
-        "tags": [],
         "openapi": "3.0.0",
-        "components": {"schemas": {}, "responses": {}, "parameters": {}, 'securitySchemes': {}},
     }
 
 
 EXPECTED_SCHEMA = """
-components:
-  parameters: {}
-  responses: {}
-  schemas: {}
-  securitySchemes: {}
 info:
   description: explanation of the api purpose
   title: Example API
@@ -141,37 +138,36 @@ paths:
   /orgs:
     get:
       responses:
-        200:
+        '200':
           description: A list of organisations.
           examples:
           - name: Foo Corp.
           - name: Acme Ltd.
     post:
       responses:
-        200:
+        '200':
           description: An organisation.
           examples:
             name: Foo Corp.
   /users:
     get:
       responses:
-        200:
+        '200':
           description: A list of users.
           examples:
           - username: tom
           - username: lucy
     post:
       responses:
-        200:
+        '200':
           description: A user.
           examples:
             username: tom
-tags: []
 """
-
 
 def test_schema_endpoint():
     client = TestClient(app)
     response = client.get("/schema")
     assert response.headers["Content-Type"] == "application/vnd.oai.openapi"
+    print(response.text.strip())
     assert response.text.strip() == EXPECTED_SCHEMA.strip()
