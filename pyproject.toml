@@ -1,5 +1,5 @@
 [tool.commitizen]
-version = "1.0.1"
+version = "1.0.2"
 tag_format = "v$version"
 files = [
   "pyproject.toml:version",
@@ -30,7 +30,7 @@ exclude = '''
 
 [tool.poetry]
 name = "starlette-apispec"
-version = "1.0.1"
+version = "1.0.2"
 description = "APISpec support for starlette"
 authors = ["Santiago Fraire Willemoes <santiwilly@gmail.com>"]
 keywords = ["openapi", "api", "swagger"]
