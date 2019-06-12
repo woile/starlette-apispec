@@ -31,7 +31,8 @@ Starlette APISpec
     from starlette_apispec import APISpecSchemaGenerator
 
     app = Starlette()
-    app.schema_generator = APISpecSchemaGenerator(
+
+    schemas = APISpecSchemaGenerator(
         APISpec(
             title="Example API",
             version="1.0",
@@ -40,6 +41,11 @@ Starlette APISpec
             plugins=[MarshmallowPlugin()],
         )
     )
+
+    @app.route("/schema", methods=["GET"], include_in_schema=False)
+    def schema(request):
+        return schemas.OpenAPIResponse(request=request)
+
 
 Installation
 ============

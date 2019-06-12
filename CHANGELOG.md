@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.0.2] - 2019-06-12
+
+### Fix
+
+- `app.schema` was deprecated in starlette so the tests were fixed.
+
+## [1.0.1] - 2019-02-16
+
+- Restructured text syntax errors in README preventing a good render in pypi.
+
 ## [1.0.0] - 2019-02-16
 
 - Support for apispec `^1.0.0`
