@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## [1.0.3] - 2019-11-12
+
+- Bumped dependecies: starlette-apispec and dev deps
+
 ## [1.0.2] - 2019-06-12
 
 ### Fix
