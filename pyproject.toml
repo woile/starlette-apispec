@@ -50,7 +50,7 @@ homepage = "https://github.com/Woile/starlette-apispec"
 
 [tool.poetry.dependencies]
 python = "^3.6"
-apispec = ">=1,<4"
+apispec = ">=1,<5"
 starlette = ">=0.11"
 pyyaml = "^5.1"
 
