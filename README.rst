@@ -4,8 +4,10 @@ Starlette APISpec
 
     Easy APISpec integration for Starlette
 
-.. image:: https://img.shields.io/github/workflow/status/Woile/starlette-apispec/Python%2520package
+
+.. image:: https://github.com/Woile/starlette-apispec/actions/workflows/pythonpackage.yml/badge.svg?style=flat-square
     :alt: GitHub Workflow Status
+    :target: https://github.com/Woile/starlette-apispec/actions/workflows/pythonpackage.yml
 
 .. image:: https://img.shields.io/codecov/c/github/Woile/starlette-apispec.svg?style=flat-square
     :alt: Codecov
