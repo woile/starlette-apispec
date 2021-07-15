@@ -1,4 +1,5 @@
 import typing
+
 from starlette.routing import BaseRoute
 from starlette.schemas import BaseSchemaGenerator
 

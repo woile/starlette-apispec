@@ -1,11 +1,9 @@
 from apispec import APISpec
-
 from starlette.applications import Starlette
 from starlette.endpoints import HTTPEndpoint
 from starlette.testclient import TestClient
 
 from starlette_apispec import APISpecSchemaGenerator
-
 
 app = Starlette()
 
@@ -164,6 +162,7 @@ paths:
           examples:
             username: tom
 """
+
 
 def test_schema_endpoint():
     client = TestClient(app)

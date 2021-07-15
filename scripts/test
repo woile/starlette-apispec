@@ -1,1 +1,11 @@
-pytest --cov-report term-missing --cov=starlette_apispec tests/
+#!/bin/sh -e
+
+export PREFIX="poetry run python -m "
+if [ -d '.venv' ] ; then
+    export PREFIX=".venv/bin/"
+fi
+
+${PREFIX}pytest --cov-report term-missing --cov-report=xml:coverage.xml --cov=starlette_apispec tests/
+${PREFIX}black starlette_apispec tests --check
+${PREFIX}isort --check-only commitizen tests
+${PREFIX}flake8 commitizen/ tests/
