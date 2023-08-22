@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v2.0.0 (2023-08-22)
+
+### BREAKING CHANGE
+
+- `py3.6` and `py3.7` have been dropped, please upgrade to `>=py3.8`
+
+### Fix
+
+- update bump action
+- drop support for python deprecated versions and update packages
+
 ## v1.0.5 (2021-12-20)
 
 ### Fix

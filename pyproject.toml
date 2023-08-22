@@ -28,7 +28,7 @@ exclude = '''
 
 [tool.poetry]
 name = "starlette-apispec"
-version = "1.0.5"
+version = "2.0.0"
 description = "APISpec support for starlette"
 authors = ["Santiago Fraire Willemoes <santiwilly@gmail.com>"]
 keywords = ["openapi", "api", "swagger"]
