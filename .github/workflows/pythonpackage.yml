@@ -28,11 +28,3 @@ jobs:
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
         ./scripts/test
-    - name: Upload coverage to Codecov
-      if: runner.os == 'Linux'
-      uses: codecov/codecov-action@v1.0.3
-      with:
-        token: ${{secrets.CODECOV_TOKEN}}
-        file: ./coverage.xml
-        flags: unittests
-        name: codecov-umbrella
