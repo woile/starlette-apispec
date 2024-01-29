@@ -55,7 +55,7 @@ pyyaml = ">=5.1,<7.0"
 [tool.poetry.group.dev.dependencies]
 pytest = ">=6,<8"
 flake8 = "^5.0"
-black = "^23.7.0"
+black = ">=23.7,<25.0"
 mypy = "^1.5"
 pytest-cov = ">=3,<5"
 codecov = "^2.0"
