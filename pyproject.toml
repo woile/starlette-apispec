@@ -60,7 +60,7 @@ mypy = "^1.5"
 pytest-cov = ">=3,<5"
 codecov = "^2.0"
 isort = "^5.9.2"
-starlette = {version = ">=0.31,<0.34", extras = ["full"]}
+starlette = {version = ">=0.31,<0.38", extras = ["full"]}
 
 [build-system]
 requires = ["poetry>=0.12"]
